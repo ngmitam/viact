@@ -11,7 +11,8 @@
 		"build:backend": "cd back-end && npm run build",
 		"build:frontend": "cd front-end && npm run build",
 		"build": "npm run build:frontend && npm run build:backend",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test:e2e": "cd back-end && npm run test:e2e",
+		"test": "cd back-end && npm test"
 	},
 	"author": "ngmitam",
 	"license": "ISC"
