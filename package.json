@@ -1,0 +1,18 @@
+{
+	"name": "viact",
+	"version": "1.0.0",
+	"description": "viact login",
+	"main": " ",
+	"scripts": {
+		"start:backend": "cd back-end && npm start",
+		"start:backend:dev": "cd back-end && npm run start:dev",
+		"start:backend:prod": "cd back-end && npm run start:prod",
+		"start:frontend": "cd front-end && npm start",
+		"build:backend": "cd back-end && npm run build",
+		"build:frontend": "cd front-end && npm run build",
+		"build": "npm run build:frontend && npm run build:backend",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "ngmitam",
+	"license": "ISC"
+}

@@ -1,0 +1,6 @@
+mysql/
+node_modules/
+back-end/node_modules
+front-end/node_modules
+back-end/dist
+front-end/build
