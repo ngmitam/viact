@@ -23,7 +23,7 @@ services:
     restart: always
     environment:
       - DB_HOST=mysql
-      - ENV=prod
+      - ENV=dev # set to prod in production
       - SALT_ROUNDS=10
     ports:
       - 3000:3000
