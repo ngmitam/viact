@@ -12,7 +12,8 @@
 		"build:frontend": "cd front-end && npm run build",
 		"build": "npm run build:frontend && npm run build:backend",
 		"test:e2e": "cd back-end && npm run test:e2e",
-		"test": "cd back-end && npm test"
+		"test": "cd back-end && npm test",
+		"install": "cd back-end && npm install && cd ../front-end && npm install"
 	},
 	"author": "ngmitam",
 	"license": "ISC"
