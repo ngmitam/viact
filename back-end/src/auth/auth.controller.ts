@@ -16,6 +16,7 @@ export class AuthController {
   }
 
   @Post('register')
+  @HttpCode(HttpStatus.OK)
   async register(@Body() body: { email: string; password: string }): Promise<{
     result: boolean;
     message?: string;

@@ -18,6 +18,7 @@ export class UsersService {
   }
 
   findOneByEmail(email: string): Promise<UsersEntity | null> {
+    if (!email) return Promise.resolve(null);
     return this.usersRepo.findOne({
       where: [{ email }, { username: email }],
     });
@@ -58,7 +59,7 @@ export class UsersService {
           };
         }
 
-        const saltOrRounds = env.SALT_ROUNDS ?? 10;
+        const saltOrRounds = parseInt(env.SALT_ROUNDS ?? '10', 10);
         const hash = bcrypt.hashSync(password, saltOrRounds);
 
         return this.usersRepo
@@ -72,7 +73,8 @@ export class UsersService {
             };
           });
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         return {
           result: false,
           message: 'Something went wrong',
