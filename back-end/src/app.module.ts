@@ -12,7 +12,7 @@ import { AuthModule } from './auth/auth.module';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', 'front-end', 'build'),
     }),
-    DatabaseModule.forRoot(),
+    DatabaseModule,
     UsersModule,
     AuthModule,
   ],

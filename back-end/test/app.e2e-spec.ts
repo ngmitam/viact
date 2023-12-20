@@ -18,7 +18,7 @@ describe('AppController (e2e)', () => {
   });
 
   afterAll(async () => {
-    await app.close();
+    await app?.close();
     const connection = createConnection({
       host: 'localhost',
       user: 'test_user',
@@ -26,14 +26,29 @@ describe('AppController (e2e)', () => {
       database: 'test_db',
     });
     try {
-      await connection.promise().query('DROP TABLE `test_db`.`users`');
+      await connection.promise().query('DROP TABLE `test_db`.`users_entity`');
     } catch (error) {
       // console.log('error =', error);
     }
     await connection.promise().end();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer()).get('').expect(404);
+  it('register user then login should return access_token', async () => {
+    await request(app.getHttpServer())
+      .post('/api/auth/register')
+      .send({
+        email: 'newUser',
+        password: 'password',
+      })
+      .expect(201);
+    const result = await request(app.getHttpServer())
+      .post('/api/auth/login')
+      .send({
+        email: 'newUser',
+        password: 'password',
+      })
+      .expect(200);
+    expect(result.body).toHaveProperty('data');
+    expect(result.body.data).toHaveProperty('access_token');
   });
 });

@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Inject, Module } from '@nestjs/common';
 import { databaseProviders } from './database.service';
 
 @Module({
@@ -7,12 +7,4 @@ import { databaseProviders } from './database.service';
   providers: [...databaseProviders],
   exports: [...databaseProviders],
 })
-export class DatabaseModule {
-  static forRoot() {
-    return {
-      module: DatabaseModule,
-      providers: [...databaseProviders],
-      exports: [...databaseProviders],
-    };
-  }
-}
+export class DatabaseModule {}

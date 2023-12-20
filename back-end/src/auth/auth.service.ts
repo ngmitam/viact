@@ -57,4 +57,14 @@ export class AuthService {
       HttpStatus.UNAUTHORIZED,
     );
   }
+
+  register(
+    email: string,
+    password: string,
+  ): Promise<{
+    result: boolean;
+    message?: string;
+  }> {
+    return this.usersService.create(email, password);
+  }
 }

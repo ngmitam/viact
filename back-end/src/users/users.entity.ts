@@ -8,7 +8,7 @@ export class UsersEntity {
   @Column({ type: 'text', nullable: true })
   username?: string | null;
 
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   createdAt!: Date;
 
   @Column({ type: 'text', nullable: true })

@@ -6,23 +6,23 @@ describe('UsersEntity', () => {
     expect(usersEntity).toBeDefined();
     expect(usersEntity).toBeInstanceOf(UsersEntity);
     expect(usersEntity.id).not.toBeDefined();
-    expect(usersEntity.createdAt).not.toBeDefined();
+    expect(usersEntity.createdAt).toBeDefined();
   });
 
   it('should be defined with 1 field (id)', () => {
-    const usersEntity = new UsersEntity({ id: '' });
+    const usersEntity = new UsersEntity({ id: '1' });
     expect(usersEntity).toBeDefined();
     expect(usersEntity).toBeInstanceOf(UsersEntity);
-    expect(usersEntity.id).toBe(1);
-    expect(usersEntity.createdAt).not.toBeDefined();
+    expect(usersEntity.id).toBe('1');
+    expect(usersEntity.createdAt).toBeDefined();
   });
 
   it('should be defined with 2 fields (id, createdAt)', () => {
     const usersEntity = new UsersEntity({ id: '1', createdAt: new Date() });
     expect(usersEntity).toBeDefined();
     expect(usersEntity).toBeInstanceOf(UsersEntity);
-    expect(usersEntity.id).toBe(1);
-    expect(usersEntity.createdAt).not.toBeDefined();
+    expect(usersEntity.id).toBe('1');
+    expect(usersEntity.createdAt).toBeDefined();
   });
 
   it('should be defined with 2 fields (username, password)', () => {
@@ -30,7 +30,7 @@ describe('UsersEntity', () => {
     expect(usersEntity).toBeDefined();
     expect(usersEntity).toBeInstanceOf(UsersEntity);
     expect(usersEntity.id).not.toBeDefined();
-    expect(usersEntity.createdAt).not.toBeDefined();
+    expect(usersEntity.createdAt).toBeDefined();
     expect(usersEntity.username).toBe('user1');
     expect(usersEntity.password).toBe('abc');
   });
